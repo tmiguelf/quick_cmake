@@ -1,21 +1,22 @@
 //======== ======== ======== ======== ======== ======== ======== ========
 ///	\file
+///		Version meta data
 ///
 ///	\copyright
 ///		Copyright (c) Tiago Miguel Oliveira Freire
-///		
+///
 ///		Permission is hereby granted, free of charge, to any person obtaining a copy
 ///		of this software and associated documentation files (the "Software"),
 ///		to copy, modify, publish, and/or distribute copies of the Software,
 ///		and to permit persons to whom the Software is furnished to do so,
 ///		subject to the following conditions:
-///		
+///
 ///		The copyright notice and this permission notice shall be included in all
 ///		copies or substantial portions of the Software.
 ///		The copyrighted work, or derived works, shall not be used to train
 ///		Artificial Intelligence models of any sort; or otherwise be used in a
 ///		transformative way that could obfuscate the source of the copyright.
-///		
+///
 ///		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 ///		IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 ///		FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,16 +26,33 @@
 ///		SOFTWARE.
 //======== ======== ======== ======== ======== ======== ======== ========
 
-#include <print>
+#include <winver.h>
 
-#include <dynamicLib/dynamicLib.hpp>
-#include <staticLib/staticLib.hpp>
-#include <headerLib/headerLib.hpp>
+IDI_ICON1	ICON	"Generic.ico"
+VS_VERSION_INFO VERSIONINFO
 
-int main(
-	[[maybe_unused]] int argc,
-	[[maybe_unused]] char* argv[])
-{
-	std::print("{} {} {}\n", funcDynamic(), funcStatic(), funcHeader());
-	return 0;
-}
+
+	FILEVERSION		1,2,3,0
+	PRODUCTVERSION	1,2,3,0
+
+	FILEFLAGSMASK	VS_FFI_FILEFLAGSMASK
+	FILEFLAGS		0
+	FILETYPE		VFT_APP
+
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "000004e4"
+		BEGIN
+			VALUE "FileDescription",	"PLACE HOLDER"
+			VALUE "FileVersion",		"1.2.3"
+			VALUE "ProductName",		"consoleapp"
+			VALUE "ProductVersion",		"1.2.3"
+		END
+	END
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x0000, 1252
+	END
+END
+

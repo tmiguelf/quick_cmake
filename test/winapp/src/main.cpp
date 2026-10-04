@@ -29,6 +29,7 @@
 
 #include <dynamicLib/dynamicLib.hpp>
 #include <staticLib/staticLib.hpp>
+#include <headerLib/headerLib.hpp>
 
 #include <Windows.h>
 
@@ -38,6 +39,6 @@ int WINAPI wWinMain(
 	[[maybe_unused]] PWSTR pCmdLine,
 	[[maybe_unused]] int nCmdShow)
 {
-	std::print("{} {}\n", funcDynamic(), funcStatic());
+	std::print("{} {} {}\n", funcDynamic(), funcStatic(), funcHeader());
 	return 0;
 }
