@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 4.2.3)
-project(application VERSION 1.0.0 LANGUAGES CXX)
+project(application)
+enable_language(CXX)
 
 file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS 
 	"./src/*.cpp"
