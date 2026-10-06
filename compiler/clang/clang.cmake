@@ -10,7 +10,7 @@ function(quick_add_clang_post_config)
 			target_compile_options(${PROJECT_NAME} PRIVATE "-O3" "-foptimize-sibling-calls" )
 			target_compile_options(${PROJECT_NAME} PRIVATE "-Wno-deprecated-declarations")
 			target_compile_options(${PROJECT_NAME} PRIVATE "-flto=auto")
-			target_link_options(${PROJECT_NAME} PRIVATE "-flto")
+			target_link_options(${PROJECT_NAME} PRIVATE "-flto" "-O2")
 		endif()
 
 		if((CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64") OR (CMAKE_SYSTEM_PROCESSOR STREQUAL "AMD64"))
@@ -20,12 +20,12 @@ function(quick_add_clang_post_config)
 		endif()
 
 		target_compile_options(${PROJECT_NAME} PRIVATE "-fvisibility=hidden")
-		target_compile_options(${PROJECT_NAME} PRIVATE "-pedantic-errors" "-Weverything" "-Wall" "-W" "-Werror" "-Wcast-qual" "-Wshadow" "-Wold-style-cast" "-Winline" "-Wno-c++98-compat")
+		target_compile_options(${PROJECT_NAME} PRIVATE "-pedantic-errors" "-Weverything" "-Wall" "-W" "-Wcast-qual" "-Wshadow" "-Wold-style-cast" "-Winline" "-Wno-c++98-compat")
 		target_compile_options(${PROJECT_NAME} PRIVATE "-fno-exceptions" "-fno-rtti")
 		target_compile_options(${PROJECT_NAME} PRIVATE "-fmerge-all-constants")
 		target_compile_options(${PROJECT_NAME} PRIVATE "-ffast-math" "-fno-math-errno")
 
-		target_link_options(${PROJECT_NAME} PRIVATE "-fPIC")
+		target_link_options(${PROJECT_NAME} PRIVATE "-fPIC" "-Wl,-rpath=$ORIGIN" "-Wl,-z,stack-size=67108864")
 	else()
 
 		if(CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -34,7 +34,6 @@ function(quick_add_clang_post_config)
 	
 		else()
 			target_compile_options(${PROJECT_NAME} PRIVATE "/O2" "/Ot" "/GR-" "/Gw" "/Zo")
-			target_compile_options(${PROJECT_NAME} PRIVATE "/WX")
 			#target_link_options(${PROJECT_NAME} PRIVATE "-flto")
 		endif()
 

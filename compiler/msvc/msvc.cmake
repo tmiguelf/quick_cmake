@@ -11,7 +11,7 @@ function(quick_add_msvc_post_config)
 	else()
 		target_compile_options(${PROJECT_NAME} PRIVATE "/O2" "/Ot" "/GL" "/GR-" "/Gw" "/Zo")
 		#target_compile_options(${PROJECT_NAME} PRIVATE "/Gu-")
-		target_compile_options(${PROJECT_NAME} PRIVATE "/WX" "/wd4996")
+		target_compile_options(${PROJECT_NAME} PRIVATE "/wd4996")
 
 		target_link_options(${PROJECT_NAME} PRIVATE "/LTCG" "/DYNAMICBASE")
 		#target_link_options(${PROJECT_NAME} PRIVATE "/OPT:REF,ICF") #default

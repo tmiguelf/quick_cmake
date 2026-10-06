@@ -11,10 +11,14 @@ function(quick_default_post_config) #build_type
 
 	if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 		target_compile_definitions(${PROJECT_NAME} PRIVATE "DEBUG")
+	else()
+		get_target_property(warning_is_not_error ${PROJECT_NAME} QUICK_NO_WARNING_AS_ERROR)
+		if(NOT warning_is_not_error)
+			set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_WARNING_AS_ERROR True)
+		endif()
 	endif()
 
 	if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-		message("Linux")
 	elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 		include("${CMAKE_CURRENT_FUNCTION_LIST_DIR}/os/windows.cmake")
 		quick_add_win_post_config()
@@ -45,4 +49,10 @@ function(quick_default_post_config) #build_type
 	target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_FUNCTION_LIST_DIR}/extension/include" )
 	target_compile_definitions(${PROJECT_NAME} PRIVATE "NOMINMAX")
 
+endfunction()
+
+function(quick_test)
+	foreach(arg IN LISTS ARGN)
+		message(STATUS "ARG : ${arg}")
+	endforeach()
 endfunction()
