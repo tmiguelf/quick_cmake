@@ -33,4 +33,3 @@ dynamicLib_API uint32_t funcDynamic()
 {
 	return 5 * funcStatic();
 }
-

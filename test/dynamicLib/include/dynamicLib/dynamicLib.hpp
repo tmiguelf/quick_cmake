@@ -31,4 +31,3 @@
 #include <cstdint>
 
 dynamicLib_API uint32_t funcDynamic();
-

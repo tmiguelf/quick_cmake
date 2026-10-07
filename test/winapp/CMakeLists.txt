@@ -18,8 +18,8 @@ add_executable(${PROJECT_NAME} WIN32 ${SOURCE_FILES} ${RESOURCE_FILES})
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/extension/include" )
 
 #target_include_directories(${PROJECT_NAME} PRIVATE "$<TARGET_PROPERTY:testLib,INTERFACE_INCLUDE_DIRECTORIES>")
-target_link_libraries(${PROJECT_NAME} LINK_PRIVATE staticLib)
-target_link_libraries(${PROJECT_NAME} LINK_PRIVATE headerLib)
-target_link_libraries(${PROJECT_NAME} LINK_PRIVATE dynamicLib)
+target_link_libraries(${PROJECT_NAME} PRIVATE staticLib)
+target_link_libraries(${PROJECT_NAME} PRIVATE headerLib)
+target_link_libraries(${PROJECT_NAME} PRIVATE dynamicLib)
 
 quick_default_post_config()

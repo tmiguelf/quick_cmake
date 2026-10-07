@@ -19,7 +19,7 @@ add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${RESOURCE_FILES})
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" )
 
-target_link_libraries(${PROJECT_NAME} LINK_PRIVATE staticLib)
-target_link_libraries(${PROJECT_NAME} LINK_PRIVATE headerLib)
+target_link_libraries(${PROJECT_NAME} PRIVATE staticLib)
+target_link_libraries(${PROJECT_NAME} PRIVATE headerLib)
 
 quick_default_post_config()

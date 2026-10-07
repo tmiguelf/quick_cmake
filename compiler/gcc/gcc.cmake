@@ -20,10 +20,11 @@ function(quick_add_gcc_post_config)
 	endif()
 
 	target_compile_options(${PROJECT_NAME} PRIVATE "-fvisibility=hidden")
-	target_compile_options(${PROJECT_NAME} PRIVATE "-pedantic-errors" "-Wall" "-W" "-Wcast-qual" "-Wshadow" "-Wold-style-cast" "-Winline" )
+	target_compile_options(${PROJECT_NAME} PRIVATE "-pedantic-errors" "-Wall" "-W" "-Wcast-qual" "-Wshadow" "-Wold-style-cast" )
 	target_compile_options(${PROJECT_NAME} PRIVATE "-fno-enforce-eh-specs" "-fno-exceptions" "-fno-rtti")
 	target_compile_options(${PROJECT_NAME} PRIVATE "-fmerge-constants" "-fmerge-all-constants")
-	target_compile_options(${PROJECT_NAME} PRIVATE "-ffast-math" "-fno-math-errno")
+	target_compile_options(${PROJECT_NAME} PRIVATE "-fno-math-errno")
+	#target_compile_options(${PROJECT_NAME} PRIVATE "-ffast-math")
 	target_link_options(${PROJECT_NAME} PRIVATE "-fPIC" "-Wl,-rpath=$ORIGIN" "-Wl,-z,stack-size=67108864" )
 
 endfunction()
