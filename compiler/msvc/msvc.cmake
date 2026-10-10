@@ -9,7 +9,7 @@ function(quick_add_msvc_post_config)
 		#target_link_options(${PROJECT_NAME} PRIVATE "/INFERASANLIBS")
 	
 	else()
-		target_compile_options(${PROJECT_NAME} PRIVATE "/O2" "/Ot" "/GL" "/GR-" "/Gw" "/Zo")
+		target_compile_options(${PROJECT_NAME} PRIVATE "/O2" "/Ot" "/Oi" "/GL" "/GR-" "/Gw" "/Zo")
 		#target_compile_options(${PROJECT_NAME} PRIVATE "/Gu-")
 
 		target_link_options(${PROJECT_NAME} PRIVATE "/LTCG" "/DYNAMICBASE")

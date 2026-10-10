@@ -27,6 +27,7 @@ function(quick_add_clang_post_config)
 		#target_compile_options(${PROJECT_NAME} PRIVATE "-ffast-math")
 
 		target_link_options(${PROJECT_NAME} PRIVATE "-fPIC" "-Wl,-rpath=$ORIGIN" "-Wl,-z,stack-size=67108864")
+
 	else()
 
 		if(CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -34,8 +35,9 @@ function(quick_add_clang_post_config)
 			target_compile_options(${PROJECT_NAME} PRIVATE "/GS" "/RTC1" "/Zi")
 	
 		else()
-			target_compile_options(${PROJECT_NAME} PRIVATE "/O2" "/Ot" "/GR-" "/Gw" "/Zo")
-			#target_link_options(${PROJECT_NAME} PRIVATE "-flto")
+			target_compile_options(${PROJECT_NAME} PRIVATE "/O2" "/Ot" "/Oi" "/GR-" "/Gw" "/Zo")
+			target_compile_options(${PROJECT_NAME} PRIVATE "-Wno-deprecated-declarations")
+			target_link_options(${PROJECT_NAME} PRIVATE "/LTCG")
 		endif()
 
 		if((CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64") OR (CMAKE_SYSTEM_PROCESSOR STREQUAL "AMD64"))
@@ -49,7 +51,7 @@ function(quick_add_clang_post_config)
 		target_compile_options(${PROJECT_NAME} PRIVATE "/EHs-")
 		target_compile_options(${PROJECT_NAME} PRIVATE "/volatile:iso")
 		#target_compile_options(${PROJECT_NAME} PRIVATE "/fp:fast")
-		target_compile_options(${PROJECT_NAME} PRIVATE "/W4" "/sdl")
+		target_compile_options(${PROJECT_NAME} PRIVATE "/W4" "/sdl" "-Wno-missing-braces" "-Wno-deprecated-copy")
 		target_compile_options(${PROJECT_NAME} PRIVATE "/bigobj")
 		target_compile_options(${PROJECT_NAME} PRIVATE "/utf-8" "/validate-charset")
 		target_compile_options(${PROJECT_NAME} PRIVATE "/nologo")
