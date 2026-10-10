@@ -19,7 +19,7 @@ function(quick_add_clang_post_config)
 			target_compile_options(${PROJECT_NAME} PRIVATE "-march=armv8.1-a")
 		endif()
 
-		target_compile_options(${PROJECT_NAME} PRIVATE "-fvisibility=hidden")
+		target_compile_options(${PROJECT_NAME} PRIVATE "-fvisibility=hidden" "-fPIC")
 		target_compile_options(${PROJECT_NAME} PRIVATE "-pedantic-errors" "-Wall" "-W" "-Wcast-qual" "-Wshadow" "-Wold-style-cast" "-Wno-c++98-compat" "-Wno-nested-anon-types" "-Wno-deprecated-copy")
 		target_compile_options(${PROJECT_NAME} PRIVATE "-fno-exceptions" "-fno-rtti")
 		target_compile_options(${PROJECT_NAME} PRIVATE "-fmerge-all-constants")
